@@ -1,0 +1,67 @@
+[kesh-pull-to-refresh] {
+  width: 100%;
+  height: 0;
+}
+
+[kesh-scrollable-area] {
+  overflow-y: auto;
+  position: relative;
+}
+
+[kesh-viewport] {
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+[kesh-input-container] {
+  position: relative;
+  margin: 0 var(--margin-x) var(--margin-x);
+  flex-shrink: 0;
+  align-self: center;
+  z-index: 2;
+}
+
+[kesh-input] {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes blink_input_opacity_to_prevent_scrolling_when_focus {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+/* prevent auto scrolling when input gets focused */
+[kesh-input]:focus {
+  animation: blink_input_opacity_to_prevent_scrolling_when_focus 1ms;
+}
+
+[kesh-content] {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+[kesh-overlay] {
+  display: flex;
+  flex-direction: column;
+  height: 200vh;
+  width: 100%;
+  position: fixed;
+  top: -50%;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  z-index: 1;
+}
+
+[kesh-list] {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  padding: 1rem;
+}

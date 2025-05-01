@@ -1,13 +1,40 @@
 {
   "name": "kesh",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Spotlight search components for mobile and tablet React apps",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsdown",
+    "dev": "tsdown --watch"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.10.0"
+  "author": "Mahmood Saghrajooghi <mahmood.saghrajooghi@gmail.com>",
+  "license": "MIT",
+  "packageManager": "pnpm@10.10.0",
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.1.2",
+    "tsdown": "^0.10.2",
+    "tsx": "^4.19.4",
+    "unplugin-lightningcss": "^0.3.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./index.css": "./dist/index.css"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.11",
+    "cmdk": "^1.1.1",
+    "react": "^19.1.0",
+    "react-spring": "^9.7.5",
+    "typescript": "^5.8.3"
+  }
 }

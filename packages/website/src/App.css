@@ -1,0 +1,96 @@
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+[kesh-content] {
+
+  --color-neutral-50: oklch(98.5% 0 0);
+  --color-neutral-100: oklch(97% 0 0);
+  --color-neutral-200: oklch(92.2% 0 0);
+  --color-neutral-300: oklch(87% 0 0);
+  --color-neutral-400: oklch(70.8% 0 0);
+  --color-neutral-500: oklch(55.6% 0 0);
+  --color-neutral-600: oklch(43.9% 0 0);
+  --color-neutral-700: oklch(37.1% 0 0);
+  --color-neutral-800: oklch(26.9% 0 0);
+  --color-neutral-900: oklch(20.5% 0 0);
+  --color-neutral-950: oklch(14.5% 0 0);
+
+  --color-text: var(--color-neutral-100);
+  --color-text-secondary: var(--color-neutral-200);
+  --color-accent-background: var(--color-neutral-500);
+
+  background-color: rgb(from var(--color-neutral-400) r g b / 0.7);
+}
+
+.dark [kesh-content] {
+  --color-accent-background: var(--color-neutral-700);
+
+  background-color: rgb(from var(--color-neutral-800) r g b / 0.7);
+}
+
+[kesh-item] {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  padding-right: .5rem;
+  padding-left: .5rem;
+  border-radius: 6px;
+  height: 40px;
+  color: var(--color-text);
+}
+
+  [kesh-item]:first-child {
+    margin-top: .5rem;
+  }
+
+[kesh-item]+[kesh-item] {
+  margin-top: .25rem;
+}
+
+[kesh-item][data-selected="true"] {
+  background-color: var(--color-accent-background);
+}
+
+[kesh-item] .item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: var(--color-neutral-200);
+  border-radius: 6px;
+}
+
+[cmdk-group] + [cmdk-group] {
+  margin-top: .5rem;
+}
+
+[cmdk-group-heading] {
+  font-size: .875rem;
+  font-weight: 500;
+  user-select: none;
+  font-size: 12px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+}
+
+[kesh-input] {
+  line-height: 1.25rem;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: inherit;
+  background-color: var(--color-accent-background);
+  color: var(--color-text);
+  padding-left: .5rem;
+}
+
+[kesh-input-container][data-state="open"] [kesh-input] {
+  padding-left: 2rem;
+  padding-right: 2.5rem;
+}
