@@ -77,7 +77,7 @@ function App() {
           </Kesh.List>
           <Kesh.InputContainer className="group">
             <SearchIcon className="group-data-[state=open]:scale-100 scale-0 transition-all duration-300" />
-            <Kesh.Input value={inputValue} onValueChange={(value) => setInputValue(value)} />
+            <Kesh.Input value={inputValue} onValueChange={(value: string) => setInputValue(value)} />
             <CloseButton className="group-data-[state=open]:scale-100 scale-0 transition-all duration-300" />
           </Kesh.InputContainer>
         </Kesh.Content>
