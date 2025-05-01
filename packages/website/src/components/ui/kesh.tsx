@@ -1,5 +1,5 @@
 import { X, Search } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '../../lib/utils'
 
 export function ItemIcon({ children }: { children: React.ReactNode }) {
   return (
