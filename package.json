@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "website": "pnpm --filter website run dev",
-    "kesh": "pnpm --filter kesh run dev"
+    "kesh": "pnpm --filter kesh dev",
+    "build": "pnpm --filter kesh build"
   },
   "keywords": [],
   "author": "",
