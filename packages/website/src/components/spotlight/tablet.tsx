@@ -8,7 +8,7 @@ import Slack from '../logo/slack';
 import YouTube from '../logo/youtube';
 import Raycast from '../logo/raycast';
 import GitHub from '../logo/github';
-import { SearchIcon, CloseButton } from '../ui/kesh';
+import { SearchIcon } from '../ui/kesh';
 import { cn } from '../../lib/utils'
 
 import styles from './tablet.module.css'
