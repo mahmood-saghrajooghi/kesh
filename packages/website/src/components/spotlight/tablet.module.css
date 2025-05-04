@@ -1,26 +1,26 @@
+
 .Tablet {
+  --color-accent-background: var(--color-neutral-200);
 
-
-  --color-accent-background: var(--color-neutral-800);
 
   &[kesh-dialog] {
-    /* --color-accent-background: var(--color-neutral-700); */
-
     border-radius: 12px;
-    border: 1px solid var(--color-neutral-800);
     overflow: hidden;
-    background-color: rgb(from var(--color-neutral-900) r g b / 0.8);
+    background-color: rgb(from var(--color-neutral-400) r g b / 0.7);
   }
 
   [kesh-list] {
     padding: .75rem .5rem;
   }
 
+  .SearchIcon {
+    color: var(--color-text);
+  }
 
   .InputContainer {
     height: 48px;
     position: relative;
-    border-bottom: 1px solid var(--color-neutral-800);
+    border-bottom: 1px solid var(--color-neutral-400);
   }
 
   [kesh-input] {
@@ -32,4 +32,17 @@
     height: 100%;
   }
 
+}
+
+:global(.dark) .Tablet {
+  --color-accent-background: var(--color-neutral-700);
+
+  &[kesh-dialog] {
+    border: 1px solid var(--color-neutral-800);
+    background-color: rgb(from var(--color-neutral-900) r g b / 0.8);
+  }
+
+  .InputContainer {
+    border-bottom: 1px solid var(--color-neutral-800);
+  }
 }

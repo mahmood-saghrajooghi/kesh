@@ -26,7 +26,7 @@ const useMediaQuery = (query: string) => {
 
 function App() {
   const [inputValue, setInputValue] = useState('')
-  const isTablet = useMediaQuery(`(max-width: ${breakpoints.md}px)`);
+  const isTablet = useMediaQuery(`(max-width: ${breakpoints.lg}px)`);
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.sm}px)`);
 
   return (

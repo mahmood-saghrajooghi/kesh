@@ -9,9 +9,9 @@ import YouTube from '../logo/youtube';
 import Raycast from '../logo/raycast';
 import GitHub from '../logo/github';
 import { SearchIcon, CloseButton } from '../ui/kesh';
+import { cn } from '../../lib/utils'
 
 import styles from './tablet.module.css'
-
 type Props = {
   setInputValue: (value: string) => void
   inputValue: string
@@ -21,7 +21,7 @@ export default function SpotlightTablet({ setInputValue, inputValue }: Props) {
   return (
     <Kesh.Dialog onRest={() => setInputValue('')} className={styles.Tablet}>
       <div className={styles.InputContainer}>
-        <SearchIcon className="left-1" />
+        <SearchIcon className={cn(styles.SearchIcon, 'left-1')} />
         <Kesh.Input value={inputValue} onValueChange={(value: string) => setInputValue(value)} />
       </div>
       <Kesh.List>
