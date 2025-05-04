@@ -5,82 +5,36 @@ import githubLogo from '/github.svg'
 import { Button } from './components/ui/button'
 import './App.css'
 import 'kesh/index.css'
-import { ItemIcon, ItemContent, CloseButton, SearchIcon } from './components/ui/kesh'
-import Linear from './components/logo/linear'
-import Figma from './components/logo/figma'
-import Slack from './components/logo/slack'
-import YouTube from './components/logo/youtube'
-import Raycast from './components/logo/raycast'
-import GitHub from './components/logo/github'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { breakpoints} from './lib/breakpoints'
+import SpotlightMobile from './components/spotlight/mobile'
+import SpotlightTablet from './components/spotlight/tablet'
 
+const useMediaQuery = (query: string) => {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    window.addEventListener("resize", listener);
+    return () => window.removeEventListener("resize", listener);
+  }, [matches, query]);
+  return matches;
+};
 
 function App() {
   const [inputValue, setInputValue] = useState('')
+  const isTablet = useMediaQuery(`(max-width: ${breakpoints.md}px)`);
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.sm}px)`);
+
   return (
     <Kesh.Root>
       <Kesh.PullToRefresh />
       <Kesh.Viewport className="px-4">
-        <Kesh.Content onRest={() => setInputValue('')}>
-          <Kesh.List>
-            <Kesh.Group heading="Applications">
-              <Kesh.Item value="Linear">
-                <ItemIcon>
-                  <Linear className="w-4 h-4 " />
-                </ItemIcon>
-                <ItemContent>
-                  Linear
-                </ItemContent>
-              </Kesh.Item>
-              <Kesh.Item value="Figma">
-                <ItemIcon>
-                  <Figma className="w-4 h-4 " />
-                </ItemIcon>
-                <ItemContent>
-                  Figma
-                </ItemContent>
-              </Kesh.Item>
-              <Kesh.Item value="Slack">
-                <ItemIcon>
-                  <Slack className="w-4 h-4 " />
-                </ItemIcon>
-                <ItemContent>
-                  Slack
-                </ItemContent>
-              </Kesh.Item>
-              <Kesh.Item value="YouTube">
-                <ItemIcon>
-                  <YouTube className="w-4 h-4 " />
-                </ItemIcon>
-                <ItemContent>
-                  Youtube
-                </ItemContent>
-              </Kesh.Item>
-              <Kesh.Item value="Raycast">
-                <ItemIcon>
-                  <Raycast className="w-4 h-4 " />
-                </ItemIcon>
-                <ItemContent>
-                  Raycast
-                </ItemContent>
-              </Kesh.Item>
-              <Kesh.Item value="Github">
-                <ItemIcon>
-                  <GitHub className="w-4 h-4 " />
-                </ItemIcon>
-                <ItemContent>
-                  Github
-                </ItemContent>
-              </Kesh.Item>
-
-            </Kesh.Group>
-          </Kesh.List>
-          <Kesh.InputContainer className="group">
-            <SearchIcon className="group-data-[state=open]:scale-100 scale-0 transition-all duration-300" />
-            <Kesh.Input value={inputValue} onValueChange={(value: string) => setInputValue(value)} />
-            <CloseButton className="group-data-[state=open]:scale-100 scale-0 transition-all duration-300" />
-          </Kesh.InputContainer>
-        </Kesh.Content>
+        {isMobile && <SpotlightMobile setInputValue={setInputValue} inputValue={inputValue} />}
+        {isTablet && !isMobile && <SpotlightTablet setInputValue={setInputValue} inputValue={inputValue} />}
         <div className="flex justify-center w-full p-4">
           <p className="text-muted-foreground">
             👆 Pull down on the screen to see Kesh in action

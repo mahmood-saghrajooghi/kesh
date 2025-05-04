@@ -26,7 +26,6 @@ export default function Viewport(props: Props): React.ReactElement {
     let startedDraggingWhileAtTop = false;
 
     ref.ontouchstart = (e) => {
-      console.log('touchstart');
       touchstartY.current = e.touches[0].clientY;
       startedDraggingWhileAtTop = ref.scrollTop <= 0;
     }

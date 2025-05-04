@@ -26,6 +26,7 @@ body {
 
 .dark [kesh-content] {
   --color-accent-background: var(--color-neutral-700);
+  --color-input-background: var(--color-neutral-700);
 
   background-color: rgb(from var(--color-neutral-800) r g b / 0.7);
 }
@@ -85,7 +86,7 @@ body {
   border-radius: 8px;
   outline: none;
   font-size: inherit;
-  background-color: var(--color-accent-background);
+  background-color: var(--color-input-background);
   color: var(--color-text);
   padding-left: .5rem;
 }
