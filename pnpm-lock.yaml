@@ -102,6 +102,9 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.0.0
+      lightningcss:
+        specifier: ^1.29.3
+        version: 1.29.3
       typescript:
         specifier: ~5.7.2
         version: 5.7.3
