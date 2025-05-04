@@ -19,9 +19,7 @@ export default function Dialog({ children, onRest, className }: Props): React.Re
     setState,
     touchDiff,
     overlayTop,
-    setOverlayTop,
     vh,
-    touchstartY,
     viewportRef,
   } = useKesh();
 
@@ -57,10 +55,15 @@ export default function Dialog({ children, onRest, className }: Props): React.Re
       top: 0,
     },
     onRest: () => {
-      setState(s => s === STATE.CLOSING ? STATE.CLOSED : s)
-      if (onRest) {s
-        onRest();
-      }
+      setState(s => {
+        if(s === STATE.CLOSING){
+          if (onRest) {
+            onRest();
+          }
+          return STATE.CLOSED
+        }
+        return s;
+      })
     }
   });
 
