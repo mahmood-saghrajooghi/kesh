@@ -5,7 +5,8 @@
   "scripts": {
     "website": "pnpm --filter website run dev",
     "kesh": "pnpm --filter kesh dev",
-    "build": "pnpm --filter kesh build"
+    "build": "pnpm --filter kesh build",
+    "release": "pnpm build && pnpm publish --filter kesh --access public"
   },
   "keywords": [],
   "author": "",
