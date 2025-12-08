@@ -21,7 +21,8 @@
     "unplugin-lightningcss": "^0.3.3"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "exports": {
     ".": {
