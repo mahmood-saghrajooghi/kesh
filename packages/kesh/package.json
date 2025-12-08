@@ -1,6 +1,6 @@
 {
   "name": "kesh",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Spotlight search components for mobile and tablet React apps",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
